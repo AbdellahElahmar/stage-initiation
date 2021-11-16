@@ -1,0 +1,742 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GESTION_DE_STOCKModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bon">
+          <Key>
+            <PropertyRef Name="id_Bon" />
+          </Key>
+          <Property Name="id_Bon" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_Bon" Type="datetime" Nullable="false" />
+          <Property Name="id_Client" Type="int" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="250" />
+          <Property Name="id_Libreur" Type="int" />
+          <Property Name="id_Demandeur" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="BonLivraison">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Affaire" Type="int" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="250" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="250" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="PrixU" Type="nvarchar" MaxLength="250" />
+          <Property Name="PrixT" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="ID_Categorie" />
+          </Key>
+          <Property Name="ID_Categorie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Categorie" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Prenom_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adresse_Client" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Ville_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email_Client" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Etat_Affaire" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="DateDebut" Type="nvarchar" MaxLength="250" />
+          <Property Name="DateFin" Type="nvarchar" MaxLength="250" />
+          <Property Name="Num_Telephone" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="ID_Commande" />
+          </Key>
+          <Property Name="ID_Commande" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_Commande" Type="date" />
+          <Property Name="Total_HT" Type="nvarchar" MaxLength="250" />
+          <Property Name="Tva" Type="nvarchar" MaxLength="250" />
+          <Property Name="Total_TTC" Type="nvarchar" MaxLength="250" />
+          <Property Name="Id_Fourisseur" Type="int" Nullable="false" />
+          <Property Name="SommeTVA" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Details_Bon">
+          <Key>
+            <PropertyRef Name="IdèDetail" />
+          </Key>
+          <Property Name="IdèDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idBon" Type="int" Nullable="false" />
+          <Property Name="idProduit" Type="int" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="PrixU" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Details_Commande">
+          <Key>
+            <PropertyRef Name="idDetail" />
+          </Key>
+          <Property Name="idDetail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Commande" Type="int" Nullable="false" />
+          <Property Name="Ref_Produit" Type="nvarchar" MaxLength="250" />
+          <Property Name="Quantite" Type="int" Nullable="false" />
+          <Property Name="prix" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="total" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="Id_Fournisseur" />
+          </Key>
+          <Property Name="Id_Fournisseur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Fournisseur" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adresse_Fournisseur" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Telephone_Fournisseur" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Personnel">
+          <Key>
+            <PropertyRef Name="id_Personnel" />
+          </Key>
+          <Property Name="id_Personnel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_Personnel" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Adresse_Personnel" Type="nvarchar" MaxLength="250" />
+          <Property Name="Telephone_Personnel" Type="nvarchar" MaxLength="250" />
+          <Property Name="CIN" Type="nvarchar" MaxLength="250" />
+          <Property Name="Poste" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="ID_Produit" />
+          </Key>
+          <Property Name="ID_Produit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reference" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Quantite_Produit" Type="int" Nullable="false" />
+          <Property Name="Prix_Produit" Type="nvarchar" MaxLength="250" />
+          <Property Name="ID_Categorie" Type="int" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="Nom_Utilisateur" />
+          </Key>
+          <Property Name="Nom_Utilisateur" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Mot_De_Passe" Type="nvarchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bon_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bon" Type="Self.Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Bon">
+              <PropertyRef Name="id_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bon_Personnel">
+          <End Role="Personnel" Type="Self.Personnel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Bon" Type="Self.Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnel">
+              <PropertyRef Name="id_Personnel" />
+            </Principal>
+            <Dependent Role="Bon">
+              <PropertyRef Name="id_Demandeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BonLivraison_Client">
+          <End Role="Client" Type="Self.Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BonLivraison" Type="Self.BonLivraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="BonLivraison">
+              <PropertyRef Name="id_Affaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_Fournisseur">
+          <End Role="Fournisseur" Type="Self.Fournisseur" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Commande" Type="Self.Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="Id_Fournisseur" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="Id_Fourisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Bon_Bon">
+          <End Role="Bon" Type="Self.Bon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Details_Bon" Type="Self.Details_Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bon">
+              <PropertyRef Name="id_Bon" />
+            </Principal>
+            <Dependent Role="Details_Bon">
+              <PropertyRef Name="idBon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Bon_Produit">
+          <End Role="Produit" Type="Self.Produit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Details_Bon" Type="Self.Details_Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_Produit" />
+            </Principal>
+            <Dependent Role="Details_Bon">
+              <PropertyRef Name="idProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Commande_Commande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Details_Commande" Type="Self.Details_Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_Commande" />
+            </Principal>
+            <Dependent Role="Details_Commande">
+              <PropertyRef Name="ID_Commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produit_Categorie">
+          <End Role="Categorie" Type="Self.Categorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Produit" Type="Self.Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="ID_Categorie" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="ID_Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GESTION_DE_STOCKModelStoreContainer">
+          <EntitySet Name="Bon" EntityType="Self.Bon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BonLivraison" EntityType="Self.BonLivraison" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categorie" EntityType="Self.Categorie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Details_Bon" EntityType="Self.Details_Bon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Details_Commande" EntityType="Self.Details_Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fournisseur" EntityType="Self.Fournisseur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personnel" EntityType="Self.Personnel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produit" EntityType="Self.Produit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bon_Client" Association="Self.FK_Bon_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="Bon" EntitySet="Bon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bon_Personnel" Association="Self.FK_Bon_Personnel">
+            <End Role="Personnel" EntitySet="Personnel" />
+            <End Role="Bon" EntitySet="Bon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BonLivraison_Client" Association="Self.FK_BonLivraison_Client">
+            <End Role="Client" EntitySet="Client" />
+            <End Role="BonLivraison" EntitySet="BonLivraison" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commande_Fournisseur" Association="Self.FK_Commande_Fournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseur" />
+            <End Role="Commande" EntitySet="Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Bon_Bon" Association="Self.FK_Details_Bon_Bon">
+            <End Role="Bon" EntitySet="Bon" />
+            <End Role="Details_Bon" EntitySet="Details_Bon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Bon_Produit" Association="Self.FK_Details_Bon_Produit">
+            <End Role="Produit" EntitySet="Produit" />
+            <End Role="Details_Bon" EntitySet="Details_Bon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Commande_Commande" Association="Self.FK_Details_Commande_Commande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="Details_Commande" EntitySet="Details_Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produit_Categorie" Association="Self.FK_Produit_Categorie">
+            <End Role="Categorie" EntitySet="Categorie" />
+            <End Role="Produit" EntitySet="Produit" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GESTION_DE_STOCKModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbstockContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bons" EntityType="GESTION_DE_STOCKModel.Bon" />
+          <EntitySet Name="BonLivraisons" EntityType="GESTION_DE_STOCKModel.BonLivraison" />
+          <EntitySet Name="Categories" EntityType="GESTION_DE_STOCKModel.Categorie" />
+          <EntitySet Name="Clients" EntityType="GESTION_DE_STOCKModel.Client" />
+          <EntitySet Name="Commandes" EntityType="GESTION_DE_STOCKModel.Commande" />
+          <EntitySet Name="Details_Bon" EntityType="GESTION_DE_STOCKModel.Details_Bon" />
+          <EntitySet Name="Details_Commande" EntityType="GESTION_DE_STOCKModel.Details_Commande" />
+          <EntitySet Name="Fournisseurs" EntityType="GESTION_DE_STOCKModel.Fournisseur" />
+          <EntitySet Name="Personnels" EntityType="GESTION_DE_STOCKModel.Personnel" />
+          <EntitySet Name="Produits" EntityType="GESTION_DE_STOCKModel.Produit" />
+          <EntitySet Name="Utilisateurs" EntityType="GESTION_DE_STOCKModel.Utilisateur" />
+          <AssociationSet Name="FK_Bon_Client" Association="GESTION_DE_STOCKModel.FK_Bon_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="Bon" EntitySet="Bons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bon_Personnel" Association="GESTION_DE_STOCKModel.FK_Bon_Personnel">
+            <End Role="Personnel" EntitySet="Personnels" />
+            <End Role="Bon" EntitySet="Bons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Bon_Bon" Association="GESTION_DE_STOCKModel.FK_Details_Bon_Bon">
+            <End Role="Bon" EntitySet="Bons" />
+            <End Role="Details_Bon" EntitySet="Details_Bon" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BonLivraison_Client" Association="GESTION_DE_STOCKModel.FK_BonLivraison_Client">
+            <End Role="Client" EntitySet="Clients" />
+            <End Role="BonLivraison" EntitySet="BonLivraisons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Produit_Categorie" Association="GESTION_DE_STOCKModel.FK_Produit_Categorie">
+            <End Role="Categorie" EntitySet="Categories" />
+            <End Role="Produit" EntitySet="Produits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Commande_Fournisseur" Association="GESTION_DE_STOCKModel.FK_Commande_Fournisseur">
+            <End Role="Fournisseur" EntitySet="Fournisseurs" />
+            <End Role="Commande" EntitySet="Commandes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Commande_Commande" Association="GESTION_DE_STOCKModel.FK_Details_Commande_Commande">
+            <End Role="Commande" EntitySet="Commandes" />
+            <End Role="Details_Commande" EntitySet="Details_Commande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Details_Bon_Produit" Association="GESTION_DE_STOCKModel.FK_Details_Bon_Produit">
+            <End Role="Produit" EntitySet="Produits" />
+            <End Role="Details_Bon" EntitySet="Details_Bon" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bon">
+          <Key>
+            <PropertyRef Name="id_Bon" />
+          </Key>
+          <Property Name="id_Bon" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Bon" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_Client" Type="Int32" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="id_Libreur" Type="Int32" />
+          <Property Name="id_Demandeur" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="GESTION_DE_STOCKModel.FK_Bon_Client" FromRole="Bon" ToRole="Client" />
+          <NavigationProperty Name="Personnel" Relationship="GESTION_DE_STOCKModel.FK_Bon_Personnel" FromRole="Bon" ToRole="Personnel" />
+          <NavigationProperty Name="Details_Bon" Relationship="GESTION_DE_STOCKModel.FK_Details_Bon_Bon" FromRole="Bon" ToRole="Details_Bon" />
+        </EntityType>
+        <EntityType Name="BonLivraison">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Affaire" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="PrixU" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="PrixT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Client" Relationship="GESTION_DE_STOCKModel.FK_BonLivraison_Client" FromRole="BonLivraison" ToRole="Client" />
+        </EntityType>
+        <EntityType Name="Categorie">
+          <Key>
+            <PropertyRef Name="ID_Categorie" />
+          </Key>
+          <Property Name="ID_Categorie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Categorie" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Produits" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Categorie" ToRole="Produit" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID_Client" />
+          </Key>
+          <Property Name="ID_Client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Ville_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email_Client" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Etat_Affaire" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateDebut" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DateFin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Num_Telephone" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bons" Relationship="GESTION_DE_STOCKModel.FK_Bon_Client" FromRole="Client" ToRole="Bon" />
+          <NavigationProperty Name="BonLivraisons" Relationship="GESTION_DE_STOCKModel.FK_BonLivraison_Client" FromRole="Client" ToRole="BonLivraison" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="ID_Commande" />
+          </Key>
+          <Property Name="ID_Commande" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_Commande" Type="DateTime" Precision="0" />
+          <Property Name="Total_HT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Tva" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Total_TTC" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Fourisseur" Type="Int32" Nullable="false" />
+          <Property Name="SommeTVA" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Fournisseur" Relationship="GESTION_DE_STOCKModel.FK_Commande_Fournisseur" FromRole="Commande" ToRole="Fournisseur" />
+          <NavigationProperty Name="Details_Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Commande" ToRole="Details_Commande" />
+        </EntityType>
+        <EntityType Name="Details_Bon">
+          <Key>
+            <PropertyRef Name="IdèDetail" />
+          </Key>
+          <Property Name="IdèDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idBon" Type="Int32" Nullable="false" />
+          <Property Name="idProduit" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="PrixU" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bon" Relationship="GESTION_DE_STOCKModel.FK_Details_Bon_Bon" FromRole="Details_Bon" ToRole="Bon" />
+          <NavigationProperty Name="Produit" Relationship="GESTION_DE_STOCKModel.FK_Details_Bon_Produit" FromRole="Details_Bon" ToRole="Produit" />
+        </EntityType>
+        <EntityType Name="Details_Commande">
+          <Key>
+            <PropertyRef Name="idDetail" />
+          </Key>
+          <Property Name="idDetail" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Commande" Type="Int32" Nullable="false" />
+          <Property Name="Ref_Produit" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantite" Type="Int32" Nullable="false" />
+          <Property Name="prix" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="total" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Designation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Commande" Relationship="GESTION_DE_STOCKModel.FK_Details_Commande_Commande" FromRole="Details_Commande" ToRole="Commande" />
+        </EntityType>
+        <EntityType Name="Fournisseur">
+          <Key>
+            <PropertyRef Name="Id_Fournisseur" />
+          </Key>
+          <Property Name="Id_Fournisseur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Fournisseur" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse_Fournisseur" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Fournisseur" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Commandes" Relationship="GESTION_DE_STOCKModel.FK_Commande_Fournisseur" FromRole="Fournisseur" ToRole="Commande" />
+        </EntityType>
+        <EntityType Name="Personnel">
+          <Key>
+            <PropertyRef Name="id_Personnel" />
+          </Key>
+          <Property Name="id_Personnel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_Personnel" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Adresse_Personnel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Telephone_Personnel" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CIN" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Poste" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Bons" Relationship="GESTION_DE_STOCKModel.FK_Bon_Personnel" FromRole="Personnel" ToRole="Bon" />
+        </EntityType>
+        <EntityType Name="Produit">
+          <Key>
+            <PropertyRef Name="ID_Produit" />
+          </Key>
+          <Property Name="ID_Produit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reference" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Quantite_Produit" Type="Int32" Nullable="false" />
+          <Property Name="Prix_Produit" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ID_Categorie" Type="Int32" />
+          <Property Name="Designation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Categorie" Relationship="GESTION_DE_STOCKModel.FK_Produit_Categorie" FromRole="Produit" ToRole="Categorie" />
+          <NavigationProperty Name="Details_Bon" Relationship="GESTION_DE_STOCKModel.FK_Details_Bon_Produit" FromRole="Produit" ToRole="Details_Bon" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="Nom_Utilisateur" />
+          </Key>
+          <Property Name="Nom_Utilisateur" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Mot_De_Passe" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Bon_Client">
+          <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Bon" Role="Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="Bon">
+              <PropertyRef Name="id_Client" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bon_Personnel">
+          <End Type="GESTION_DE_STOCKModel.Personnel" Role="Personnel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Bon" Role="Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Personnel">
+              <PropertyRef Name="id_Personnel" />
+            </Principal>
+            <Dependent Role="Bon">
+              <PropertyRef Name="id_Demandeur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Bon_Bon">
+          <End Type="GESTION_DE_STOCKModel.Bon" Role="Bon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Details_Bon" Role="Details_Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bon">
+              <PropertyRef Name="id_Bon" />
+            </Principal>
+            <Dependent Role="Details_Bon">
+              <PropertyRef Name="idBon" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BonLivraison_Client">
+          <End Type="GESTION_DE_STOCKModel.Client" Role="Client" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.BonLivraison" Role="BonLivraison" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Client">
+              <PropertyRef Name="ID_Client" />
+            </Principal>
+            <Dependent Role="BonLivraison">
+              <PropertyRef Name="id_Affaire" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Produit_Categorie">
+          <End Type="GESTION_DE_STOCKModel.Categorie" Role="Categorie" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Produit" Role="Produit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorie">
+              <PropertyRef Name="ID_Categorie" />
+            </Principal>
+            <Dependent Role="Produit">
+              <PropertyRef Name="ID_Categorie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Commande_Fournisseur">
+          <End Type="GESTION_DE_STOCKModel.Fournisseur" Role="Fournisseur" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fournisseur">
+              <PropertyRef Name="Id_Fournisseur" />
+            </Principal>
+            <Dependent Role="Commande">
+              <PropertyRef Name="Id_Fourisseur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Commande_Commande">
+          <End Type="GESTION_DE_STOCKModel.Commande" Role="Commande" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Details_Commande" Role="Details_Commande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="ID_Commande" />
+            </Principal>
+            <Dependent Role="Details_Commande">
+              <PropertyRef Name="ID_Commande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Details_Bon_Produit">
+          <End Type="GESTION_DE_STOCKModel.Produit" Role="Produit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GESTION_DE_STOCKModel.Details_Bon" Role="Details_Bon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produit">
+              <PropertyRef Name="ID_Produit" />
+            </Principal>
+            <Dependent Role="Details_Bon">
+              <PropertyRef Name="idProduit" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GESTION_DE_STOCKModelStoreContainer" CdmEntityContainer="dbstockContext">
+          <EntitySetMapping Name="Bons">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Bon">
+              <MappingFragment StoreEntitySet="Bon">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="id_Demandeur" ColumnName="id_Demandeur" />
+                <ScalarProperty Name="id_Libreur" ColumnName="id_Libreur" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="id_Client" ColumnName="id_Client" />
+                <ScalarProperty Name="Date_Bon" ColumnName="Date_Bon" />
+                <ScalarProperty Name="id_Bon" ColumnName="id_Bon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BonLivraisons">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.BonLivraison">
+              <MappingFragment StoreEntitySet="BonLivraison">
+                <ScalarProperty Name="PrixT" ColumnName="PrixT" />
+                <ScalarProperty Name="PrixU" ColumnName="PrixU" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="id_Affaire" ColumnName="id_Affaire" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Categorie">
+              <MappingFragment StoreEntitySet="Categorie">
+                <ScalarProperty Name="Nom_Categorie" ColumnName="Nom_Categorie" />
+                <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="Num_Telephone" ColumnName="Num_Telephone" />
+                <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+                <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+                <ScalarProperty Name="Etat_Affaire" ColumnName="Etat_Affaire" />
+                <ScalarProperty Name="Email_Client" ColumnName="Email_Client" />
+                <ScalarProperty Name="Ville_Client" ColumnName="Ville_Client" />
+                <ScalarProperty Name="Adresse_Client" ColumnName="Adresse_Client" />
+                <ScalarProperty Name="Prenom_Client" ColumnName="Prenom_Client" />
+                <ScalarProperty Name="Nom_Client" ColumnName="Nom_Client" />
+                <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commandes">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Commande">
+              <MappingFragment StoreEntitySet="Commande">
+                <ScalarProperty Name="SommeTVA" ColumnName="SommeTVA" />
+                <ScalarProperty Name="Id_Fourisseur" ColumnName="Id_Fourisseur" />
+                <ScalarProperty Name="Total_TTC" ColumnName="Total_TTC" />
+                <ScalarProperty Name="Tva" ColumnName="Tva" />
+                <ScalarProperty Name="Total_HT" ColumnName="Total_HT" />
+                <ScalarProperty Name="Date_Commande" ColumnName="Date_Commande" />
+                <ScalarProperty Name="ID_Commande" ColumnName="ID_Commande" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details_Bon">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Details_Bon">
+              <MappingFragment StoreEntitySet="Details_Bon">
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="PrixU" ColumnName="PrixU" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="idProduit" ColumnName="idProduit" />
+                <ScalarProperty Name="idBon" ColumnName="idBon" />
+                <ScalarProperty Name="IdèDetail" ColumnName="IdèDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Details_Commande">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Details_Commande">
+              <MappingFragment StoreEntitySet="Details_Commande">
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="total" ColumnName="total" />
+                <ScalarProperty Name="prix" ColumnName="prix" />
+                <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+                <ScalarProperty Name="Ref_Produit" ColumnName="Ref_Produit" />
+                <ScalarProperty Name="ID_Commande" ColumnName="ID_Commande" />
+                <ScalarProperty Name="idDetail" ColumnName="idDetail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fournisseurs">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Fournisseur">
+              <MappingFragment StoreEntitySet="Fournisseur">
+                <ScalarProperty Name="Telephone_Fournisseur" ColumnName="Telephone_Fournisseur" />
+                <ScalarProperty Name="Adresse_Fournisseur" ColumnName="Adresse_Fournisseur" />
+                <ScalarProperty Name="Nom_Fournisseur" ColumnName="Nom_Fournisseur" />
+                <ScalarProperty Name="Id_Fournisseur" ColumnName="Id_Fournisseur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personnels">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Personnel">
+              <MappingFragment StoreEntitySet="Personnel">
+                <ScalarProperty Name="Poste" ColumnName="Poste" />
+                <ScalarProperty Name="CIN" ColumnName="CIN" />
+                <ScalarProperty Name="Telephone_Personnel" ColumnName="Telephone_Personnel" />
+                <ScalarProperty Name="Adresse_Personnel" ColumnName="Adresse_Personnel" />
+                <ScalarProperty Name="Nom_Personnel" ColumnName="Nom_Personnel" />
+                <ScalarProperty Name="id_Personnel" ColumnName="id_Personnel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produits">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Produit">
+              <MappingFragment StoreEntitySet="Produit">
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="ID_Categorie" ColumnName="ID_Categorie" />
+                <ScalarProperty Name="Prix_Produit" ColumnName="Prix_Produit" />
+                <ScalarProperty Name="Quantite_Produit" ColumnName="Quantite_Produit" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="ID_Produit" ColumnName="ID_Produit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="GESTION_DE_STOCKModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="Mot_De_Passe" ColumnName="Mot_De_Passe" />
+                <ScalarProperty Name="Nom_Utilisateur" ColumnName="Nom_Utilisateur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

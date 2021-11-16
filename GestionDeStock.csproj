@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7D20A41B-5B18-42B0-AA3D-6CB743EA0657}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GestionDeStock</RootNamespace>
+    <AssemblyName>GestionDeStock</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Admin\Desktop\GestionStock stage\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>GestionStock</ProductName>
+    <PublisherName>Gestion_Stock</PublisherName>
+    <SuiteName>IRELECA</SuiteName>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>432E3B5F40B75398DD9A8B90212332BAC60550F3</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>GestionDeStock_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\CLS_BonLivraison.cs" />
+    <Compile Include="BL\CLS_Bon_DetailsBon.cs" />
+    <Compile Include="BL\CLS_Categorie.cs" />
+    <Compile Include="BL\CLS_Client.cs" />
+    <Compile Include="BL\CLS_Commande_DetailCommande.cs" />
+    <Compile Include="BL\CLS_Connexion.cs" />
+    <Compile Include="BL\CLS_Fournisseur.cs" />
+    <Compile Include="BL\Cls_Personnel.cs" />
+    <Compile Include="BL\CLS_Produit.cs" />
+    <Compile Include="BL\D_Bon.cs" />
+    <Compile Include="BL\D_Commande.cs" />
+    <Compile Include="Bon.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BonLivraison.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Categorie.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Client.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Commande.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbStock.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbStock.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbStock.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbStock.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DbStock.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Details_Bon.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Details_Commande.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fournisseur.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Personnel.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouet_Modifier_Produit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouet_Modifier_Produit.Designer.cs">
+      <DependentUpon>FRM_Ajouet_Modifier_Produit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouter_Modifier_Categorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouter_Modifier_Categorie.Designer.cs">
+      <DependentUpon>FRM_Ajouter_Modifier_Categorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouter_Modifier_Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouter_Modifier_Client.Designer.cs">
+      <DependentUpon>FRM_Ajouter_Modifier_Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_AJOUTER_MODIFIER_FOURNISSEUR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_AJOUTER_MODIFIER_FOURNISSEUR.Designer.cs">
+      <DependentUpon>FRM_AJOUTER_MODIFIER_FOURNISSEUR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouter_Modifier_Personnel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Ajouter_Modifier_Personnel.Designer.cs">
+      <DependentUpon>FRM_Ajouter_Modifier_Personnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Connexion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Connexion.Designer.cs">
+      <DependentUpon>FRM_Connexion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Details_Bon_Retour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Details_Bon_Retour.Designer.cs">
+      <DependentUpon>FRM_Details_Bon_Retour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Details_Commande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Details_Commande.Designer.cs">
+      <DependentUpon>FRM_Details_Commande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Detail_Bon_Sortie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Detail_Bon_Sortie.Designer.cs">
+      <DependentUpon>FRM_Detail_Bon_Sortie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_LISTE_FOURNISSEUR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_LISTE_FOURNISSEUR.Designer.cs">
+      <DependentUpon>FRM_LISTE_FOURNISSEUR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_List_Affaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_List_Affaire.Designer.cs">
+      <DependentUpon>FRM_List_Affaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Menu.Designer.cs">
+      <DependentUpon>FRM_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUIT_COMMANDE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_PRODUIT_COMMANDE.Designer.cs">
+      <DependentUpon>FRM_PRODUIT_COMMANDE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Produit_Retour.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Produit_Retour.Designer.cs">
+      <DependentUpon>FRM_Produit_Retour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\FRM_Produit_Sortie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PL\FRM_Produit_Sortie.Designer.cs">
+      <DependentUpon>FRM_Produit_Sortie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\USER_List.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\USER_List.Designer.cs">
+      <DependentUpon>USER_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\USER_LISTE_Commande.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\USER_LISTE_Commande.Designer.cs">
+      <DependentUpon>USER_LISTE_Commande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\User_Liste_Personnel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\User_Liste_Personnel.Designer.cs">
+      <DependentUpon>User_Liste_Personnel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\User_Liste_Produit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\User_Liste_Produit.Designer.cs">
+      <DependentUpon>User_Liste_Produit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\User_List_BonSortie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\User_List_BonSortie.Designer.cs">
+      <DependentUpon>User_List_BonSortie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\USER_LIST_Categorie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\USER_LIST_Categorie.Designer.cs">
+      <DependentUpon>USER_LIST_Categorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PL\User_List_Fournisseur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PL\User_List_Fournisseur.Designer.cs">
+      <DependentUpon>User_List_Fournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Produit.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAP\FRM_Rapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAP\FRM_Rapport.Designer.cs">
+      <DependentUpon>FRM_Rapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Utilisateur.cs">
+      <DependentUpon>DbStock.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="PL\FRM_Ajouet_Modifier_Produit.resx">
+      <DependentUpon>FRM_Ajouet_Modifier_Produit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Ajouter_Modifier_Categorie.resx">
+      <DependentUpon>FRM_Ajouter_Modifier_Categorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Ajouter_Modifier_Client.resx">
+      <DependentUpon>FRM_Ajouter_Modifier_Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_AJOUTER_MODIFIER_FOURNISSEUR.resx">
+      <DependentUpon>FRM_AJOUTER_MODIFIER_FOURNISSEUR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Ajouter_Modifier_Personnel.resx">
+      <DependentUpon>FRM_Ajouter_Modifier_Personnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Connexion.resx">
+      <DependentUpon>FRM_Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Details_Bon_Retour.resx">
+      <DependentUpon>FRM_Details_Bon_Retour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Details_Commande.resx">
+      <DependentUpon>FRM_Details_Commande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Detail_Bon_Sortie.resx">
+      <DependentUpon>FRM_Detail_Bon_Sortie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_LISTE_FOURNISSEUR.resx">
+      <DependentUpon>FRM_LISTE_FOURNISSEUR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_List_Affaire.resx">
+      <DependentUpon>FRM_List_Affaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Menu.resx">
+      <DependentUpon>FRM_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_PRODUIT_COMMANDE.resx">
+      <DependentUpon>FRM_PRODUIT_COMMANDE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Produit_Retour.resx">
+      <DependentUpon>FRM_Produit_Retour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\FRM_Produit_Sortie.resx">
+      <DependentUpon>FRM_Produit_Sortie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\USER_List.resx">
+      <DependentUpon>USER_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\USER_LISTE_Commande.resx">
+      <DependentUpon>USER_LISTE_Commande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\User_Liste_Personnel.resx">
+      <DependentUpon>User_Liste_Personnel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\User_Liste_Produit.resx">
+      <DependentUpon>User_Liste_Produit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\User_List_BonSortie.resx">
+      <DependentUpon>User_List_BonSortie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\USER_LIST_Categorie.resx">
+      <DependentUpon>USER_LIST_Categorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PL\User_List_Fournisseur.resx">
+      <DependentUpon>User_List_Fournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RAP\FRM_Rapport.resx">
+      <DependentUpon>FRM_Rapport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAP\RPT_BonLivraison.rdlc" />
+    <EmbeddedResource Include="RAP\RPT_BonSortie.rdlc" />
+    <EmbeddedResource Include="RAP\Rpt_Commande.rdlc" />
+    <EntityDeploy Include="DbStock.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DbStock.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DbStock.edmx.diagram">
+      <DependentUpon>DbStock.edmx</DependentUpon>
+    </None>
+    <None Include="GestionDeStock_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\BonLivraison.datasource" />
+    <None Include="Properties\DataSources\Details_Bon.datasource" />
+    <None Include="Properties\DataSources\Details_Commande.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DbStock.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DbStock.Context.cs</LastGenOutput>
+      <DependentUpon>DbStock.edmx</DependentUpon>
+    </Content>
+    <Content Include="DbStock.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DbStock.edmx</DependentUpon>
+      <LastGenOutput>DbStock.cs</LastGenOutput>
+    </Content>
+    <Content Include="GESTION_DE_STOCK.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GESTION_DE_STOCK_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\pngtree-deal-icon-png-image_1817547-ConvertImage.jpg" />
+    <None Include="Resources\pngtree-deal-icon-png-image_1817547.jpg" />
+    <None Include="Resources\ville_32.png" />
+    <None Include="Resources\Subtract_32.png" />
+    <None Include="Resources\SM-T580NZKAXAR-02-71016.jpg" />
+    <None Include="Resources\Shutdown_32.png" />
+    <None Include="Resources\shopping-icon.png" />
+    <None Include="Resources\shop-cart-add-icon.png" />
+    <None Include="Resources\Settings_32.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\samsung s8.jpg" />
+    <None Include="Resources\samsung s8 plus.png" />
+    <None Include="Resources\samsung s7.jpg" />
+    <None Include="Resources\samsung s5.jpg" />
+    <None Include="Resources\Refresh-icon.png" />
+    <None Include="Resources\Recycle-iconaaa.png" />
+    <None Include="Resources\Quantie_32.png" />
+    <None Include="Resources\product_32.png" />
+    <None Include="Resources\prix_32.png" />
+    <None Include="Resources\print-icon.png" />
+    <None Include="Resources\Pictures-icon.png" />
+    <None Include="Resources\Phone_32.png" />
+    <None Include="Resources\Pdpkeyfeature-sm-g920azdaatt-600x600-C1-062016.jpg" />
+    <None Include="Resources\pctoshiba.jpg" />
+    <None Include="Resources\pcmsi.jpeg" />
+    <None Include="Resources\pc acer.jpg" />
+    <None Include="Resources\Office-Client-Male-Light-icon.png" />
+    <None Include="Resources\Motdepasse_32.png" />
+    <None Include="Resources\Menu_32.png" />
+    <None Include="Resources\MACBOOKPRO.jpg" />
+    <None Include="Resources\login_32.png" />
+    <None Include="Resources\k.png" />
+    <None Include="Resources\iphonex.jpg" />
+    <None Include="Resources\iphone7plus.png" />
+    <None Include="Resources\iphone4c.jpg" />
+    <None Include="Resources\iphone s6plus.jpg" />
+    <None Include="Resources\iphone 6s.jpg" />
+    <None Include="Resources\iphone 6plus.jpg" />
+    <None Include="Resources\iphone 6.jpg" />
+    <None Include="Resources\iphone 5s.jpg" />
+    <None Include="Resources\iphone 5.jpg" />
+    <None Include="Resources\iphone 4s.jpg" />
+    <None Include="Resources\iphone 4.jpg" />
+    <None Include="Resources\Imprimer.png" />
+    <None Include="Resources\ImpriCanon.jpg" />
+    <None Include="Resources\Gmail_32.png" />
+    <None Include="Resources\Excel-icon.png" />
+    <None Include="Resources\Epson.jpg" />
+    <None Include="Resources\Download.png" />
+    <None Include="Resources\dell.jpg" />
+    <None Include="Resources\Deconnecte.png" />
+    <None Include="Resources\deconnect.png" />
+    <None Include="Resources\customer-service-icon.png" />
+    <None Include="Resources\customer-people.jpg" />
+    <None Include="Resources\Country_32.png" />
+    <None Include="Resources\Copier.png" />
+    <None Include="Resources\connectmode.png" />
+    <None Include="Resources\Connected_16.png" />
+    <None Include="Resources\Close-2-icon.png" />
+    <None Include="Resources\Categorize_32.png" />
+    <None Include="Resources\Categorie.png" />
+    <None Include="Resources\c05477854.png" />
+    <None Include="Resources\Button-Delete-icon.png" />
+    <None Include="Resources\Apple-iPhone-7-128-Go-4-7-Rouge.jpg" />
+    <None Include="Resources\adresse.png" />
+    <None Include="Resources\Actions-list-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 et x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.15.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2019 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
